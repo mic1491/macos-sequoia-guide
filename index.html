@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>macOS Sequoia 強制安裝新手引導</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="安裝流程">
+        <div class="brand">
+          <span class="brand-mark">15</span>
+          <div>
+            <h1>Sequoia 安裝引導</h1>
+            <p>老 Mac 強制升級助手</p>
+          </div>
+        </div>
+
+        <div class="progress-panel" aria-label="整體進度">
+          <div class="progress-copy">
+            <span id="progressText">0 / 4 完成</span>
+            <strong id="progressPercent">0%</strong>
+          </div>
+          <div class="progress-track">
+            <span id="progressBar"></span>
+          </div>
+        </div>
+
+        <nav class="step-list" id="stepList"></nav>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="modeLabel">離線可用 · 整包搬移</p>
+            <h2 id="activeTitle">準備中</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="printButton" type="button" title="列印清單" aria-label="列印清單">⎙</button>
+            <button class="icon-button" id="resetButton" type="button" title="重置進度" aria-label="重置進度">↺</button>
+          </div>
+        </header>
+
+        <section class="status-strip" aria-label="安裝狀態摘要">
+          <article>
+            <span>適用對象</span>
+            <strong>新手 / 舊 Mac</strong>
+          </article>
+          <article>
+            <span>主要方式</span>
+            <strong>OpenCore Legacy Patcher</strong>
+          </article>
+          <article>
+            <span>建議時間</span>
+            <strong>30-90 分鐘</strong>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="guide-panel">
+            <div class="panel-heading">
+              <span id="activeBadge">步驟</span>
+              <h3 id="activeHeading"></h3>
+            </div>
+            <p class="lead" id="activeSummary"></p>
+            <ul class="task-list" id="taskList"></ul>
+            <div class="step-controls">
+              <button class="text-button secondary" id="prevButton" type="button">上一步</button>
+              <button class="text-button primary" id="completeButton" type="button">標記完成</button>
+              <button class="text-button secondary" id="nextButton" type="button">下一步</button>
+            </div>
+          </article>
+
+          <aside class="media-panel">
+            <div class="video-box">
+              <video id="guideVideo" controls preload="metadata"></video>
+              <iframe
+                id="youtubeFrame"
+                title="YouTube 教學影片"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+              <div class="video-placeholder" id="videoPlaceholder">
+                <strong>等待 YouTube 連結</strong>
+                <span>線上版會在這裡播放不公開影片；USB 版仍會播放本機 MP4。</span>
+              </div>
+            </div>
+            <div class="resource-list" id="resourceList"></div>
+          </aside>
+        </section>
+
+        <section class="notes-panel">
+          <h3>關鍵提醒</h3>
+          <div class="note-grid">
+            <p>安裝完後的引導程序階段，Wi-Fi 和藍牙可能暫時不會作用；進系統後依提示安裝修補即可。</p>
+            <p>第一次登入系統、尚未打入驅動前，畫面卡頓屬正常現象；完成 root patch 後再判斷效能。</p>
+            <p>此版本預設 01、02 已完成，流程直接從安裝 OpenCore 開機檔開始。</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <template id="stepButtonTemplate">
+      <button class="step-button" type="button">
+        <span class="step-index"></span>
+        <span class="step-meta">
+          <strong></strong>
+          <small></small>
+        </span>
+        <span class="step-check" aria-hidden="true">✓</span>
+      </button>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
