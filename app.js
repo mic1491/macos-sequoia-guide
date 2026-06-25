@@ -12,12 +12,12 @@ const assets = {
 
 const steps = [
   {
-    number: "03",
-    title: "安裝開機檔",
-    short: "OpenCore 到硬碟",
+    number: "01",
+    title: "如還能開機請看",
+    short: "先安裝開機引導到硬碟，再往下執行",
     video: assets.quickVideo,
     youtube: assets.youtubeQuick,
-    summary: "如果原本系統還能開機，可以先把 OpenCore 開機檔安裝到硬碟，降低每次都依賴 USB 的麻煩。",
+    summary: "如果原本系統還能開機，請先把 OpenCore 開機引導安裝到硬碟，完成後再繼續往下執行安裝流程。",
     tasks: [
       "在 OpenCore Legacy Patcher 選擇 Build and Install OpenCore。",
       "安裝目標選內建硬碟的 EFI 分割區，避免誤選外接碟。",
@@ -32,8 +32,8 @@ const steps = [
     ],
   },
   {
-    number: "04",
-    title: "執行 macOS 安裝",
+    number: "02",
+    title: "執行安裝 macOS",
     short: "格式化與安裝",
     video: assets.fullVideo,
     youtube: assets.youtubeFull,
@@ -51,7 +51,7 @@ const steps = [
     ],
   },
   {
-    number: "05",
+    number: "03",
     title: "第一次進系統",
     short: "卡頓屬正常",
     video: assets.fullVideo,
@@ -71,7 +71,7 @@ const steps = [
     ],
   },
   {
-    number: "06",
+    number: "04",
     title: "安裝驅動與收尾",
     short: "Root Patch",
     video: assets.fullVideo,
@@ -91,7 +91,7 @@ const steps = [
   },
 ];
 
-const storageKey = "sequoia-guide-progress-v2";
+const storageKey = "sequoia-guide-progress-v3";
 const isUsbMode = location.protocol === "file:";
 const state = loadState();
 let activeIndex = 0;
